@@ -73,10 +73,10 @@
             </objects>
             <point key="canvasLocation" x="4023.188405797102" y="-423.21428571428572"/>
         </scene>
-        <!--Categories Controller-->
+        <!--favorites-->
         <scene sceneID="hdG-hL-xwf">
             <objects>
-                <viewController storyboardIdentifier="CategoriesTable" id="kiY-mt-7Y1" customClass="CategoriesController" customModule="Attractions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoriesTable" title="favorites" id="kiY-mt-7Y1" customClass="CategoriesController" customModule="Attractions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i7C-WB-zrC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="3345" y="-423"/>
         </scene>
-        <!--מועדפים-->
+        <!--מומלצים-->
         <scene sceneID="22F-Sa-OSZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YM4-9T-wt6" sceneMemberID="viewController">
+                <navigationController title="מומלצים" automaticallyAdjustsScrollViewInsets="NO" id="YM4-9T-wt6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="מועדפים" id="FZx-AO-kcJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nDM-rh-LPj">
@@ -207,10 +207,10 @@
             </objects>
             <point key="canvasLocation" x="1737.68115942029" y="-423.21428571428572"/>
         </scene>
-        <!--Categories Controller-->
+        <!--categories-->
         <scene sceneID="Il6-s7-Ldb">
             <objects>
-                <viewController id="6Bp-LF-Z9c" customClass="CategoriesController" customModule="Attractions" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="categories" id="6Bp-LF-Z9c" customClass="CategoriesController" customModule="Attractions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vCg-5i-i15">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
