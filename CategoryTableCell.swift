@@ -11,6 +11,14 @@ protocol CategoryTableCellDelegate : AnyObject {
     func didSelectItem(categoryItem:(category:Int, row:Int))
 }
 
+extension UICollectionViewFlowLayout {
+
+    open override var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return true
+    }
+
+}
+
 class CategoryTableCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var categoryName: UILabel!
@@ -27,15 +35,16 @@ class CategoryTableCell: UITableViewCell, UICollectionViewDelegate, UICollection
         categoryGallery.delegate = self
         categoryGallery.dataSource = self
         
+
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-
         if viewTitle == "favorites" {
             categoryGallery.isPagingEnabled = true
         }
-//        print(attractionsByCategories[categoryId - 1].count)
         return attractionsByCategories[categoryId - 1].count
     }
     
@@ -44,12 +53,22 @@ class CategoryTableCell: UITableViewCell, UICollectionViewDelegate, UICollection
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! ImageCollectionCell
         
-        collectionView.transform = CGAffineTransform(scaleX:-1,y: 1)
-        cell.transform = CGAffineTransform(scaleX:-1,y: 1)
+        cell.isHidden = false
         
         cell.attractionImage.image = UIImage(named: "happy")
+        
+        cell.subtitleLabel.text = (attractionsByCategories[categoryId - 1][indexPath.row]["STitle"] as! String)
+        
+        
+        cell.attractionImage.image = UIImage(named: "happy")
+
+        if attractionsByCategories[categoryId - 1].count == indexPath.row {
+            cell.isHidden = true
+        }
+        
         return cell
     }
+    
     
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -59,6 +78,9 @@ class CategoryTableCell: UITableViewCell, UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
 
+        if attractionsByCategories[categoryId - 1].count == indexPath.row {
+            return
+        }
         attractionDelegate?.didSelectItem(categoryItem: (categoryId - 1, indexPath.row))
     }
 }

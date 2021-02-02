@@ -12,5 +12,6 @@ class ImageCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var attractionImage: UIImageView!
     
-
+    @IBOutlet weak var subtitleLabel: UILabel!
+    
 }
